@@ -1,7 +1,10 @@
 package Codewars_pratice;
 
-public class Get {
-    public static String helo(String word){
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Order {
+    public static String order(String word){
         char[] chars=word.toCharArray();
         int n = 1;//统计一句话里单词的数量
         String str = "";//返回的内容
@@ -37,8 +40,12 @@ public class Get {
         System.out.println(str);
         return str;
     }
-
+    public static String order_(String words) {
+        return Arrays.stream(words.split(" "))
+                .sorted(Comparator.comparing(s -> Integer.valueOf(s.replaceAll("\\D", ""))))
+                .reduce((a, b) -> a + " " + b).get();
+    }
     public static void main(String[] args) {
-        helo("");
+        System.out.println(order_("4of Fo1r pe6ople g3ood th5e the2"));
     }
 }
