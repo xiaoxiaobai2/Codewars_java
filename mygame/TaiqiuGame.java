@@ -4,32 +4,17 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class TaiqiuGame extends Frame {
+public class TaiqiuGame extends MyFrame {
     private double x=10;
     private double y=40;
     private double speed=40;
     private double degree = Math.PI/3;
     Image image = GameUtil.getimage("image/ball.jpg");
-    public void lunchFrame(){
-        //初始化游戏界面
-        setTitle("台球小游戏");
-        setLocation(200,200);
-        setSize(500,500);
-        setVisible(true);
 
-        new paintThread().start();//每40ms更新一次
-        //添加关闭按钮
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                System.exit(0);
-            }
-        });
-    }
 
     @Override
     public void paint(Graphics g) {
+        setTitle("台球小游戏！");
         g.drawImage(image,(int)x,(int)y,null);
         x +=speed*Math.cos(degree);
         y +=speed*Math.sin(degree);
