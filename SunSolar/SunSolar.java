@@ -1,6 +1,7 @@
 package SunSolar;
 
 import java.awt.*;
+import java.util.Collection;
 
 public class SunSolar extends MyFrame{
 
@@ -47,5 +48,6 @@ public class SunSolar extends MyFrame{
 
     public static void main(String[] args) {
         new SunSolar().lunchFrame();
+        Collection collection;
     }
 }
