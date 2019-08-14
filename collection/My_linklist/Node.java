@@ -1,4 +1,4 @@
-package collection;
+package collection.My_linklist;
 
 public class Node {
     private Node previous;

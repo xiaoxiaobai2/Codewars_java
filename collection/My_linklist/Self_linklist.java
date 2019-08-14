@@ -1,4 +1,4 @@
-package collection;
+package collection.My_linklist;
 
 public class Self_linklist {
     private Node first;
@@ -29,10 +29,48 @@ public class Self_linklist {
         }
     }
 
+
+    //按索引添加元素
+    public void add(int index, Object obj){
+        range_out(index);
+        if (index == 0){
+            Node node = new Node();
+            node.setObj(obj);
+            node.setNext(first);
+            first.setPrevious(node);
+            first = node;
+            size ++;
+        }else {
+            Node temp = first;
+            for (int i =1;i<index;i++)
+            {
+                temp = temp.getNext();
+            }
+            Node node = new Node();
+            node.setObj(obj);
+            node.setNext(temp.getNext());
+            temp.getNext().setPrevious(node);
+            temp.setNext(node);
+            size ++;
+        }
+    }
+
+
+    //判断索引是否越界
+    public void range_out(int index){
+        if (index<0 || index >size-1) {
+            try {
+                throw new Exception();
+            }catch (Exception e){
+                System.out.println("越界！");
+            }
+        }
+    }
+
     /**
       * @author:  Zhang
       * @description:
-      * 获取列表长度
+      * 获取链表长度
       *
      **/
     public int getSize(){
@@ -45,6 +83,8 @@ public class Self_linklist {
         return size;
     }
 
+
+    //删除某个值
     public void remove(Object obj){
         Node n = first;
         while (n!=null){
@@ -64,11 +104,20 @@ public class Self_linklist {
                     n.getPrevious().setNext(n.getNext());
                     n.getNext().setPrevious(n.getPrevious());
                 }
+                break;
             }
             n = n.getNext();
         }
+        if (n == null)
+            try {
+                throw new Exception();
+            }catch (Exception e){
+                System.out.println("不存在！");
+            }
     }
 
+
+    //遍历链表
     public void bianli(){
         Node n = first;
         while (n!=null){
@@ -77,6 +126,7 @@ public class Self_linklist {
         }
     }
 
+    //查询某个元素是否在链表内
     public boolean contains(Object obj){
         Node n = first;
         while (n!=null){
@@ -87,14 +137,13 @@ public class Self_linklist {
         return false;
     }
 
+
+    // 按索引查找元素，从0开始
     public Object get(int index){
-        Node n=first;
-        if(index>size){
-            System.out.println("ERROR");
-        }else {
-            for(int i=1;i<index;i++){
-                n = n.getNext();
-            }
+        range_out(index);
+        Node n = first;
+        for(int i=1;i<=index;i++){
+            n = n.getNext();
         }
         return n.getObj();
     }
@@ -105,10 +154,11 @@ public class Self_linklist {
         self_linklist.add("bbb");
         self_linklist.add("ccc");
         self_linklist.remove("aaa");
+        self_linklist.add(1,"ddd");//此处索引从0开始
         int size = self_linklist.getSize();
         System.out.println(size);
         self_linklist.bianli();
-        System.out.println(self_linklist.get(2));
+        System.out.println(self_linklist.get(2));//索引从0开始
         System.out.println(self_linklist.contains("aaa"));
     }
 }
