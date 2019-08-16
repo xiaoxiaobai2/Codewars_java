@@ -19,6 +19,10 @@ public class Test_mymap {
         map1.putALL(map);
         map1.bianli();
         System.out.println("新的map大小："  + map1.getSize());
+        map1.clear();
+        map1.putALL(map);
+        map1.bianli();
+        System.out.println("新的map大小："  + map1.getSize());
         System.out.println(map.hashCode());
     }
 }

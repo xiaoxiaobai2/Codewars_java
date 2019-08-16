@@ -85,11 +85,17 @@ public class My_map {
     }
 
     public void putALL(My_map my_map){
-        Key_value[] new_ky = Arrays.copyOf(k_y,k_y.length+my_map.size);
-        for (int i=size;i<size+my_map.size;i++)
-            new_ky[i] = my_map.k_y[i-size];
-        k_y=new_ky;
-        size +=my_map.size;
+        if (size==0){
+            k_y=my_map.k_y;
+            size =my_map.size;
+        }
+        else {
+            Key_value[] new_ky = Arrays.copyOf(k_y,k_y.length+my_map.size);
+            for (int i=size;i<size+my_map.size;i++)
+                new_ky[i] = my_map.k_y[i-size];
+            k_y=new_ky;
+            size +=my_map.size;
+        }
     }
 
     public void bianli() {
