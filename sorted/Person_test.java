@@ -30,7 +30,7 @@ public class Person_test {
         treeSet2.add(p3);
         System.out.println(treeSet);
 
-
+        //创建javabean时 已经实现了Comparable 的compareTo方法
         System.out.println("使用实例类排序");
         TreeSet<Person> treeSet1 = new TreeSet<Person>();
         treeSet1.add(p1);
