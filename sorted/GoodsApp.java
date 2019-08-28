@@ -13,6 +13,7 @@ public class GoodsApp {
         System.out.println("排序前：");
         System.out.println(goods);
         System.out.println("排序后：");
+        //已经实现了 Comparator 的compare方法
         Collections.sort(goods,new ComparePrice());
         System.out.println(goods);
     }

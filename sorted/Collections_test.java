@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Collitions_test {
+public class Collections_test {
     public static void main(String[] args) {
         test01();
         System.out.println("***************************************************************");
