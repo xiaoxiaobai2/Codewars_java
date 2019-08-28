@@ -14,6 +14,10 @@ public class Test_iter {
             String string = iterator.next().toString();
             System.out.println(string);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bac5510a2e5d64bc99a3a3dab22acfab18d9ad7
         for (Iterator iterator2=set.iterator();iterator2.hasNext();){
             String string = iterator2.next().toString();
             System.out.println(string);

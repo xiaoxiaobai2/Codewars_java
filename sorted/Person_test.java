@@ -9,6 +9,7 @@ public class Person_test {
         Person p2=new Person("刘德华",2000);
         Person p3=new Person("冯巩",10);
         System.out.println("使用匿名内部类进行排序");
+
         //匿名内部类
         TreeSet<Person> treeSet=new TreeSet<Person>(new Comparator<Person>() {
             @Override
@@ -32,6 +33,7 @@ public class Person_test {
 
         //创建javabean时 已经实现了Comparable 的compareTo方法
         System.out.println("使用实例类排序");
+        //在创建javabean 时 ，实现Comparable 的compareTo方法
         TreeSet<Person> treeSet1 = new TreeSet<Person>();
         treeSet1.add(p1);
         treeSet1.add(p2);
